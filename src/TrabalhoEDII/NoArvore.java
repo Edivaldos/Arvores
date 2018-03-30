@@ -90,7 +90,7 @@ public class NoArvore {
 
     //-------------------------------------------------------------------------------------------------------------------------------------------------------//
     //-------------------Impressão Em Ordem-----------------------------------//
-    public void imprimeOrdem() {
+public void imprimeOrdem() {
         System.out.println("\nImprimindo árvore em ordem:");
         if (this.verificaRaiz()) {
             System.out.println("A raiz é nula. Nada a imprimir");

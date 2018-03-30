@@ -29,11 +29,11 @@ public class MainArvore {
     //Imprimindo em pós-ordem:
     node.imprimePosOrdem();
     
-    //busca
-    System.out.println("O elemento 161 "+ (node.busca(161) ? " existe": " não existe"));
-    node.busca(157);
-    node.busca(55);
-    node.busca(170);
+//    //busca
+//    System.out.println("O elemento 161 "+ (node.busca(161) ? " existe": " não existe"));
+//    node.busca(157);
+//    node.busca(55);
+//    node.busca(170);
     }   
 }
 
