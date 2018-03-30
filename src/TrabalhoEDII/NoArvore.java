@@ -152,15 +152,15 @@ public class NoArvore {
 
     //Busca na árvore
     public boolean busca(Integer valor) {
-        if (raiz == null) {
+        if (this.raiz.getNumero() == null) {
             System.out.println("\nÁrvore não existe! Nada a buscar!");
             return false;
         }
-        if (this.numero == valor) {
+        if (this.raiz.getNumero() == valor) {
             System.out.println("\nNó encontrado! --> " + this.numero);
             return true;
         } else {
-            if (valor < this.numero) {
+            if (valor < this.raiz.getNumero()) {
                 if (this.noEsquerdo == null) {
                     System.out.println("\n1");
                     System.out.println("Nó não encontrado3!");
