@@ -39,8 +39,8 @@ public class NoArvore {
     }
 
     //Construtor do nó
-    public NoArvore(Integer num) {
-        this.numero = num;
+    public NoArvore(Integer valor) {
+        this.numero = valor;
     }
 
     //Construtor da classe
