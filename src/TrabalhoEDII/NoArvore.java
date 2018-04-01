@@ -145,13 +145,13 @@ public void imprimeOrdem() {
         }
     }
 
-//    //Inserção dos atributos para a busca
-//    public void buscaNo(Integer numero) {
-//        busca(raiz, numero);
-//    }
+    //Inserção dos atributos para a busca
+    public void buscaNo(Integer numero) {
+        busca(raiz, numero);
+    }
 
     //Busca na árvore
-    public boolean busca(Integer valor) {
+    public Integer busca(NoArvore node, Integer valor) {
         if (this.raiz.getNumero() == null) {
             System.out.println("\nÁrvore não existe! Nada a buscar!");
             return false;

@@ -14,7 +14,7 @@ public class Principal {
     System.out.println("Início das inserções!\n");
     node.inserir(160);//o primeiro será a raiz
     node.inserir(55);
-    node.inserir(16);
+    node.inserir(161);
     node.inserir(161);
     System.out.println("Fim das inserções!\n");
     
