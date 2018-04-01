@@ -146,39 +146,39 @@ public void imprimeOrdem() {
     }
 
     //Inserção dos atributos para a busca
-    public void buscaNo(Integer numero) {
-        busca(raiz, numero);
-    }
+//    public void buscaNo(Integer numero) {
+//        busca(raiz, numero);
+//    }
 
     //Busca na árvore
-    public Integer busca(NoArvore node, Integer valor) {
-        if (this.raiz.getNumero() == null) {
-            System.out.println("\nÁrvore não existe! Nada a buscar!");
-            return false;
-        }
-        if (this.raiz.getNumero() == valor) {
-            System.out.println("\nNó encontrado! --> " + this.numero);
-            return true;
-        } else {
-            if (valor < this.raiz.getNumero()) {
-                if (this.noEsquerdo == null) {
-                    System.out.println("\n1");
-                    System.out.println("Nó não encontrado3!");
-                    return false;
-                } else {
-                    return this.noEsquerdo.busca(valor);
-                }
-            } else if (valor > this.numero){
-                if (this.noDireito == null) {
-                    System.out.println("\n1");
-                    System.out.println("Nó não encontrado3!");
-                    return false;
-                } else {
-                    return this.noDireito.busca(valor);                }
-            }
-            return false;
-        }
-    }
+//    public Integer busca(NoArvore node, Integer valor) {
+//        if (this.raiz.getNumero() == null) {
+//            System.out.println("\nÁrvore não existe! Nada a buscar!");
+//            return false;
+//        }
+//        if (this.raiz.getNumero() == valor) {
+//            System.out.println("\nNó encontrado! --> " + this.numero);
+//            return true;
+//        } else {
+//            if (valor < this.raiz.getNumero()) {
+//                if (this.noEsquerdo == null) {
+//                    System.out.println("\n1");
+//                    System.out.println("Nó não encontrado3!");
+//                    return false;
+//                } else {
+//                    return this.noEsquerdo.busca(valor);
+//                }
+//            } else if (valor > this.numero){
+//                if (this.noDireito == null) {
+//                    System.out.println("\n1");
+//                    System.out.println("Nó não encontrado3!");
+//                    return false;
+//                } else {
+//                    return this.noDireito.busca(valor);                }
+//            }
+//            return false;
+//        }
+//    }
 
     //Métodos de verificação:
     //Verifica se tem filho à esquerda na hora da inserção.
