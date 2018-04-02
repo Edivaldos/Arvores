@@ -62,7 +62,12 @@ public class No {
     }
 
     //----------------------------------------------------------------------------
-    //Inserção dos elementos
+    //Inserção dos elementos    
+    //Método auxiliar de inserção
+    public void inserirNo(int valor){
+        Elemento novo = new Elemento(valor);
+        inserir(novo);        
+    }
     public void inserir(Elemento novo) {
         //verifica se a ávore é vazia
         if (isEmpty()) {//se a árvore estiver vazia, insere o elemento.
@@ -100,10 +105,12 @@ public class No {
             return false;
         }
         if (this.ele.getValor() == valor) {
+            System.out.println("--> O elemento "+valor+" existe na árvore.");
             return true;
         } else {
             if (valor < this.ele.getValor()) {
                 if (this.noEsquerdo == null) {
+                    System.out.println("--> O elemento "+valor+" não existe na árvore.");
                     return false;
                 } else {
                     //Chama a busca passando o nó esquerdo.
@@ -111,11 +118,13 @@ public class No {
                 }
             } else if (valor > this.ele.getValor()) {
                 if (this.noDireito == null) {
+                    System.out.println("--> O elemento "+valor+" não existe na árvore.");
                     return false;
                 } else {
                     return this.noDireito.busca(valor);
                 }
             }
+            System.out.println("--> O elemento "+valor+" não existe na árvore.");
             return false;
         }
     }
@@ -197,6 +206,12 @@ public class No {
     //No JAVA não tem remoção explícita de objetos. Isto é 'feito' pelo Garbarge Collector.
     //Por isso nossa remoção acontece com a 'reconstrução' da árvore, sem o elemento removido.
     //Remoções de nós da árvore
+    //Método auxiliar de Remoção
+    public void removerNo(int valor){
+        Elemento novo = new Elemento(valor);
+        remover(novo);        
+    }
+    
     public No remover(Elemento elem) {
         if (isEmpty()) {
             System.out.println("Árvore vazia!. Nada para remover!");

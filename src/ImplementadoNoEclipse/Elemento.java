@@ -17,6 +17,10 @@ public class Elemento {
     public Elemento() {
     }
 
+    Elemento(Elemento elem) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public void setValor(int valor) {
         this.valor = valor;
     }

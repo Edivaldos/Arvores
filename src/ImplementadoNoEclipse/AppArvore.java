@@ -7,113 +7,129 @@ package ImplementadoNoEclipse;
  * @author borges.esb
  */
 public class AppArvore {
-	public static void main(String args[]){
-		
-		Elemento elem = new Elemento();
-		
-		No noArvore = new No();
-		System.out.println("------------------------>> INÍCIO DAS INSERÇÕES <<------------------------\n");
-		noArvore.inserir(new Elemento(10));
-		noArvore.inserir(new Elemento(14));
-		noArvore.inserir(new Elemento(8));
-		noArvore.inserir(new Elemento(15));
-		noArvore.inserir(new Elemento(12));
-		noArvore.inserir(new Elemento(18));
-		noArvore.inserir(new Elemento(20));
-		noArvore.inserir(new Elemento(28));
-		noArvore.inserir(new Elemento(3));
-		noArvore.inserir(new Elemento(19));
-		noArvore.inserir(new Elemento(13));
-		noArvore.inserir(new Elemento(5));
-		noArvore.inserir(new Elemento(7));
-		noArvore.inserir(new Elemento(6));
-		noArvore.inserir(new Elemento(1));
-		System.out.println("------------------------>> Fim das inserções <<--------------------------");
-		
-		System.out.println("\n----------------------->> Início das buscas - Antes de remover <<-------------------------");
-		System.out.println("--> O elemento  15 " + (noArvore.busca(15) ? "existe na árvore." : "não existe na árvore."));
-		System.out.println("--> O elemento  19 " + (noArvore.busca(19) ? "existe na árvore." : "não existe na árvore."));
-		System.out.println("--> O elemento  25 " + (noArvore.busca(25) ? "existe na árvore." : "não existe na árvore."));
-		System.out.println("--> O elemento  7 " + (noArvore.busca(7) ? "existe na árvore." : "não existe na árvore."));
-		System.out.println("--> O elemento  38 " + (noArvore.busca(38) ? "existe na árvore." : "não existe na árvore."));
-		System.out.println("--> O elemento  10 " + (noArvore.busca(10) ? "existe na árvore." : "não existe na árvore."));
-		System.out.println("\n-------------------------->> Fim das buscas - Antes de remover <<-------------------------");
-		
-		System.out.println("\n-------------------------->> Início das Impressões <<---------------------------");
-		System.out.print("\n** Impressão em Pré-Ordem:\n--> ");
-		noArvore.imprimirPreOrdem();
-		
-		System.out.print("\n\n** Impressão Em Ordem:\n--> ");
-		noArvore.imprimirEmOrdem();
-		
-		System.out.print("\n\n** Impressão em Pós-Ordem:\n--> ");
-		noArvore.imprimirPosOrdem();
-		
-		System.out.print("\n\n** Impressão em Ordem Inversa:\n--> ");
-		noArvore.imprimirEmOrdemInversa();
-		
-		System.out.println("\n--------------------------->> Fim das Impressões <<----------------------------");
-		
 
-		System.out.println("\n\n--------------------------->> INÍCIO DAS REMOÇÕES <<--------------------------");
-		System.out.println("--> --> --> Removendo...");
-		elem.setValor(20);
-		noArvore = noArvore.remover(elem);
-				
-		//1º Caso - Removendo um nó folha:
-		elem.setValor(1);
-		noArvore = noArvore.remover(elem);
-		
-		//2º Caso - Removendo um nó que tem filho somente à esquerda:
-		elem.setValor(7);
-		noArvore = noArvore.remover(elem);
-		
-		//3º Caso - Removendo um nó que tem filho somente à direita:
-		elem.setValor(12);
-		noArvore = noArvore.remover(elem);
-		
-		//4º Caso (passando para o 2º) - Removendo um nó que tem filho à esquerda e filho à direita:
-		elem.setValor(10);
-		noArvore = noArvore.remover(elem);
-		
-		//4º Caso (passando para o 1º) - Removendo um nó que tem filho à esquerda e filho à direita:
-		elem.setValor(14);
-		noArvore = noArvore.remover(elem);
-		
-		//Caso Excepcional - Removendo um nó que não existe na árvore, mas, se existisse estaria à esquerda de seu antecessor.
-		elem.setValor(16);
-		noArvore = noArvore.remover(elem);
-		
-		//Caso Excepcional 2 - Removendo um nó que não existe na árvore, mas, se existisse estaria à direita de seu antecessor.
-		elem.setValor(29);
-		noArvore = noArvore.remover(elem);
-		
-		System.out.println("\n----------------------------->> FIM DAS REMOÇÕES <<---------------------------");
-		
-		System.out.println("\n-------------------------->> Início das impressões - PÓS REMOÇÕES <<--------------------------");
-		System.out.print("\n** Impressão em Pré-Ordem:\n--> ");
-		noArvore.imprimirPreOrdem();
-		
-		System.out.print("\n\n** Impressão Em Ordem:\n--> ");
-		noArvore.imprimirEmOrdem();
-		
-		System.out.print("\n\n** Impressão em Pós-Ordem:\n--> ");
-		noArvore.imprimirPosOrdem();
-		
-		System.out.print("\n\n** Impressão em Ordem Inversa:\n--> ");
-		noArvore.imprimirEmOrdemInversa();
-		
-		System.out.println("\n\n------------------------->> Fim das Impressões - PÓS REMOÇÕES <<----------------------------\n");
-		
-		System.out.println("----------------------->> Teste de Busca na árvore após remoções <<-----------------------");
-		System.out.println("--> O elemento 20" + (noArvore.busca(20) ? " existe na árvore." : " não existe na árvore."));
-		System.out.println("--> O elemento 1" + (noArvore.busca(1) ? " existe na árvore." : " não existe na árvore."));
-		System.out.println("--> O elemento 7" + (noArvore.busca(7) ? " existe na árvore." : " não existe na árvore."));
-		System.out.println("--> O elemento 12" + (noArvore.busca(12) ? " existe na árvore." : " não existe na árvore."));
-		System.out.println("--> O elemento 10" + (noArvore.busca(10) ? " existe na árvore." : " não existe na árvore."));
-		System.out.println("--> O elemento 14" + (noArvore.busca(14) ? " existe na árvore." : " não existe na árvore."));
-		System.out.println("--> O elemento 28" + (noArvore.busca(28) ? " existe na árvore." : " não existe na árvore."));
-		System.out.println("--> O elemento 29" + (noArvore.busca(29) ? " existe na árvore." : " não existe na árvore."));
-		System.out.println("\n-------------------------->> Fim do Programa! <<--------------------------");
-	}
+    public static void main(String args[]) throws InterruptedException {
+
+        No noArvore = new No();
+
+        System.out.println("------------------------>> INÍCIO DAS INSERÇÕES <<------------------------\n");
+        noArvore.inserirNo(11);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(10);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(14);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(8);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(15);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(12);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(18);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(20);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(28);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(3);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(19);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(13);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(5);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(7);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(6);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(1);
+        new Thread().sleep(1000);
+        noArvore.inserirNo(38);
+        System.out.println("------------------------>> Fim das inserções <<--------------------------");
+
+        new Thread().sleep(2000);
+        System.out.println("\n----------------------->> Início das buscas - Antes de remover <<-------------------------");
+        noArvore.busca(15);
+        noArvore.busca(19);
+        noArvore.busca(25);
+        noArvore.busca(7);
+        noArvore.busca(38);
+        noArvore.busca(10);
+        System.out.println("\n-------------------------->> Fim das buscas - Antes de remover <<-------------------------");
+
+        new Thread().sleep(2000);
+        System.out.println("\n-------------------------->> Início das Impressões <<---------------------------");
+        System.out.print("\n** Impressão em Pré-Ordem:\n--> ");
+        noArvore.imprimirPreOrdem();
+
+        new Thread().sleep(2000);
+        System.out.print("\n\n** Impressão Em Ordem:\n--> ");
+        noArvore.imprimirEmOrdem();
+
+        new Thread().sleep(2000);
+        System.out.print("\n\n** Impressão em Pós-Ordem:\n--> ");
+        noArvore.imprimirPosOrdem();
+
+        new Thread().sleep(2000);
+        System.out.print("\n\n** Impressão em Ordem Inversa:\n--> ");
+        noArvore.imprimirEmOrdemInversa();
+
+        System.out.println("\n--------------------------->> Fim das Impressões <<----------------------------");
+
+        new Thread().sleep(2000);
+        System.out.println("\n\n--------------------------->> INÍCIO DAS REMOÇÕES <<--------------------------");
+        System.out.println("--> --> --> Removendo...");
+
+        //1º Caso - Removendo um nó folha:
+        noArvore.removerNo(1);
+        new Thread().sleep(1000);
+        //2º Caso - Removendo um nó que tem filho somente à esquerda:
+        noArvore.removerNo(7);
+        new Thread().sleep(1000);
+        //3º Caso - Removendo um nó que tem filho somente à direita:
+        noArvore.removerNo(28);
+        new Thread().sleep(1000);
+        //4º Caso (passando para o 2º) - Removendo um nó que tem filho à esquerda e filho à direita:
+        noArvore.removerNo(11);
+        new Thread().sleep(1000);
+        //4º Caso (passando para o 1º) - Removendo um nó que tem filho à esquerda e filho à direita:
+        noArvore.removerNo(14);
+        new Thread().sleep(1000);
+        //Caso Excepcional - Removendo um nó que não existe na árvore, mas, se existisse estaria à esquerda de seu antecessor.
+        noArvore.removerNo(16);
+        new Thread().sleep(1000);
+        //Caso Excepcional 2 - Removendo um nó que não existe na árvore, mas, se existisse estaria à direita de seu antecessor.
+        noArvore.removerNo(29);
+
+        System.out.println("\n----------------------------->> FIM DAS REMOÇÕES <<---------------------------");
+
+        new Thread().sleep(2000);
+        System.out.println("\n-------------------------->> Início das impressões - PÓS REMOÇÕES <<--------------------------");
+        System.out.print("\n** Impressão em Pré-Ordem:\n--> ");
+        noArvore.imprimirPreOrdem();
+
+        System.out.print("\n\n** Impressão Em Ordem:\n--> ");
+        noArvore.imprimirEmOrdem();
+
+        System.out.print("\n\n** Impressão em Pós-Ordem:\n--> ");
+        noArvore.imprimirPosOrdem();
+
+        System.out.print("\n\n** Impressão em Ordem Inversa:\n--> ");
+        noArvore.imprimirEmOrdemInversa();
+
+        System.out.println("\n\n------------------------->> Fim das Impressões - PÓS REMOÇÕES <<----------------------------\n");
+
+        new Thread().sleep(2000);
+        System.out.println("----------------------->> Teste de Busca na árvore após remoções <<-----------------------");
+        noArvore.busca(20);
+        noArvore.busca(1);
+        noArvore.busca(7);
+        noArvore.busca(12);
+        noArvore.busca(10);
+        noArvore.busca(14);
+        noArvore.busca(11);
+        noArvore.busca(29);
+        System.out.println("\n-------------------------->> Fim do Programa! <<--------------------------");
+    }
 }
