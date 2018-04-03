@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ImplementadoNoEclipse;
+package ReservaTreino;
+
+import ImplementadoNoEclipse.Elemento;
+import ImplementadoNoEclipse.No;
 
 /**
  *
  * @author borges.esb
  */
-public class Arvore extends javax.swing.JFrame {
+public class Botoes extends javax.swing.JFrame {
 
     No noArvore = new No();
     
@@ -18,7 +21,7 @@ public class Arvore extends javax.swing.JFrame {
     /**
      * Creates new form Arvore
      */
-    public Arvore() {
+    public Botoes() {
         initComponents();
     }
 
@@ -205,7 +208,7 @@ public class Arvore extends javax.swing.JFrame {
 
     private void BotaoBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotaoBuscarActionPerformed
 
-        System.out.println("\n----------------------->> Início das buscas - Antes de remover <<-------------------------");
+        System.out.println("\n----------------------->> Início das buscas <<-------------------------");
         System.out.println("--> O elemento  15 " + (noArvore.busca(15) ? "existe na árvore." : "não existe na árvore."));
         System.out.println("--> O elemento  19 " + (noArvore.busca(19) ? "existe na árvore." : "não existe na árvore."));
         System.out.println("--> O elemento  25 " + (noArvore.busca(25) ? "existe na árvore." : "não existe na árvore."));
@@ -289,20 +292,21 @@ public class Arvore extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Arvore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Botoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Arvore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Botoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Arvore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Botoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Arvore.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Botoes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Arvore().setVisible(true);
+                new Botoes().setVisible(true);
             }
         });
     }
