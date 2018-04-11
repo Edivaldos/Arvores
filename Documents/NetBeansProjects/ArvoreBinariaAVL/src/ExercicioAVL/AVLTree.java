@@ -23,15 +23,17 @@ public class AVLTree extends InterfaceTree {
 
     public AVLTree() {
     }
+
     public AVLTree(int valor) {
         this.valor = valor;
     }
-    
+
     //NULOS
     @Override
-    public boolean isNull(){
-    	return this == null;
+    public boolean isNull() {
+        return this == null;
     }
+
     @Override
     public boolean saeNull() {
         if (this.saEsquerda == null) {
@@ -40,6 +42,7 @@ public class AVLTree extends InterfaceTree {
             return false;
         }
     }
+
     @Override
     public boolean sadNull() {
         if (this.saDireita == null) {
@@ -61,6 +64,7 @@ public class AVLTree extends InterfaceTree {
             saDireita.listarPreOrdem();
         }
     }
+
     @Override
     public void listarEmOrdem() {
         if (!saeNull()) {
@@ -71,6 +75,7 @@ public class AVLTree extends InterfaceTree {
             saDireita.listarEmOrdem();
         }
     }
+
     @Override
     public void listarPosOrdem() {
         if (!saeNull()) {
@@ -109,10 +114,11 @@ public class AVLTree extends InterfaceTree {
             }
         }
         int ft = (fatorBalanceamento(this));
-	if (ft > 1 || ft < -1) {
+        if (ft > 1 || ft < -1) {
             balancear(this, ft);
-	}
+        }
     }
+
     public void deletar(int v) {
         if (this.valor == null) {
             System.out.println("Imposs�vel deletar! �vore Vazia.");
@@ -121,9 +127,9 @@ public class AVLTree extends InterfaceTree {
                 System.out.println("N� na raiz.");
             } else {
                 if (v > this.valor) {
-                    if (this.saDireita == null){
-                        System.out.println("Valor "+v+" não encontrado na árvore para ser deletado.");
-                    }else{
+                    if (this.saDireita == null) {
+                        System.out.println("Valor " + v + " não encontrado na árvore para ser deletado.");
+                    } else {
                         if (this.saDireita.valor == v) {
                             if (this.saDireita.saDireita == null && this.saDireita.saEsquerda == null) {
                                 System.out.println("N� " + this.saDireita.valor + " sem filhos.");
@@ -157,9 +163,9 @@ public class AVLTree extends InterfaceTree {
                     }
                 }
                 if (v < this.valor) {
-                    if (this.saDireita == null){
-                        System.out.println("Valor "+v+" não encontrado na árvore para ser deletado.");
-                    }else{
+                    if (this.saDireita == null) {
+                        System.out.println("Valor " + v + " não encontrado na árvore para ser deletado.");
+                    } else {
                         if (this.saEsquerda.valor == v) {
                             if (this.saEsquerda.saDireita == null && this.saEsquerda.saEsquerda == null) {
                                 this.saEsquerda = null;
@@ -182,19 +188,18 @@ public class AVLTree extends InterfaceTree {
                         }
                     }
                 }
-                
 
                 int ft = (fatorBalanceamento(this));
-				if (ft > 1 || ft < -1) {
-					balancear(this, ft);
-				}
+                if (ft > 1 || ft < -1) {
+                    balancear(this, ft);
+                }
 
             }
 
         }
 
     }
-    
+
     //AUXILIARES
     public AVLTree acharMinimo() {
         if (this.saEsquerda == null) {
@@ -205,6 +210,7 @@ public class AVLTree extends InterfaceTree {
         return null;
 
     }
+
     public AVLTree encontrarRaiz(AVLTree arvore) {
         AVLTree raiz = null;
         if (arvore != null) {
@@ -213,11 +219,12 @@ public class AVLTree extends InterfaceTree {
         this.raiz = raiz;
         return raiz;
     }
-    
+
     //CALCULA QUANTIDADES
     public void quantidadeNos(AVLTree arvore) {
         System.out.printf("A quantidade de nos dessa arvore: %d.\n", quantidade(arvore));
     }
+
     private int quantidade(AVLTree arvore) {
         if (arvore.saDireita != null) {
             quantidadeNos = 1 + quantidade(arvore.saDireita);
@@ -227,7 +234,7 @@ public class AVLTree extends InterfaceTree {
         }
         return quantidadeNos;
     }
-    
+
     //CALCULA ALTURA
     public void alturaArvore(AVLTree arvore) {
         System.out.printf("A altura dessa arvore: %d.\n", altura(arvore));
@@ -245,28 +252,30 @@ public class AVLTree extends InterfaceTree {
 //            return alturaEsquerda;
 //        }
 //    }
-        private int altura(AVLTree arvore) {
-            
-            if (arvore.valor == null) {
-                return 0;
-            } else if (arvore.saEsquerda == null && arvore.saDireita == null) {
-                return 1;
-            } else if (!saeNull()) {
-                return 1 + altura(arvore.saEsquerda);
-            } else if (!sadNull()) {
-                return 1 + altura(arvore.saDireita);
-            } else {
-                int altEsquerda = altura(arvore.saEsquerda);
-                int altDireita = altura(arvore.saDireita);
-                return 1 + Math.max(altEsquerda, altDireita);
 
-            }
+    private int altura(AVLTree arvore) {
+
+        if (arvore.valor == null) {
+            return 0;
+        } else if (arvore.saEsquerda == null && arvore.saDireita == null) {
+            return 1;
+        } else if (!saeNull()) {
+            return 1 + altura(arvore.saEsquerda);
+        } else if (!sadNull()) {
+            return 1 + altura(arvore.saDireita);
+        } else {
+            int altEsquerda = altura(arvore.saEsquerda);
+            int altDireita = altura(arvore.saDireita);
+            return 1 + Math.max(altEsquerda, altDireita);
+
         }
+    }
 
     //CALCULA PROFUNDIDADE
     public void profundidade(AVLTree arvore, int no) {
         System.out.printf("A profundidade do no %d e %d.\n", no, profundidadeNo(encontrarRaiz(arvore).valor, no));
     }
+
     private int profundidadeNo(int raiz, int no) {
         if (raiz > no) {
             if (!saeNull()) {
@@ -296,71 +305,74 @@ public class AVLTree extends InterfaceTree {
     }
 
     //ENCONTRA FATOR E BALANCEIA
-	private int fatorBalanceamento(AVLTree no) {
-		int fbe = 0;
-		int fbd = 0;
-		if (no.saEsquerda != null) {
-			fbe = no.saEsquerda.altura(no.saEsquerda);
-		}
-		if (no.saDireita != null) {
-			fbd = no.saDireita.altura(no.saDireita);
-		}
-		return fbd - fbe;
-	}
-        
-	private void balancear(AVLTree no, int ft) {
-		if (ft < -1) {
-			int ftFilhoE = fatorBalanceamento(saEsquerda);
-			if (ftFilhoE > 0) {
-				rotacaoDuplaDireita();
-			} else {
-				rotacaoDireita();
-			}
-		}
-		if (ft > 1) {
-			int ftFilhoD = fatorBalanceamento(saDireita);
-			if (ftFilhoD < 0) {
-				rotacaoDuplaEsquerda();
-			} else {
-				rotacaoEsquerda();
-			}
-		}
-	}
-    
-	//ROTA��ES
-	private void rotacaoEsquerda() {
-		Integer auxv = valor;
-		valor = saDireita.valor;
-		saDireita.valor = auxv;
+    private int fatorBalanceamento(AVLTree no) {
+        int fbe = 0;
+        int fbd = 0;
+        if (no.saEsquerda != null) {
+            fbe = no.saEsquerda.altura(no.saEsquerda);
+        }
+        if (no.saDireita != null) {
+            fbd = no.saDireita.altura(no.saDireita);
+        }
+        return fbd - fbe;
+    }
 
-		AVLTree aux = saDireita.saDireita;
-		saDireita.saDireita = saDireita.saEsquerda;
+    private void balancear(AVLTree no, int ft) {
+        if (ft < -1) {
+            int ftFilhoE = fatorBalanceamento(saEsquerda);
+            if (ftFilhoE > 0) {
+                rotacaoDuplaDireita();
+            } else {
+                rotacaoDireita();
+            }
+        }
+        if (ft > 1) {
+            int ftFilhoD = fatorBalanceamento(saDireita);
+            if (ftFilhoD < 0) {
+                rotacaoDuplaEsquerda();
+            } else {
+                rotacaoEsquerda();
+            }
+        }
+    }
 
-		saDireita.saEsquerda = saEsquerda;
-		saEsquerda = saDireita;
-		saDireita = aux;
+    //ROTA��ES
+    private void rotacaoEsquerda() {
+        Integer auxv = valor;
+        valor = saDireita.valor;
+        saDireita.valor = auxv;
 
-	}
-	private void rotacaoDireita() {
-		Integer auxv = valor;
-		valor = saEsquerda.valor;
-		saEsquerda.valor = auxv;
+        AVLTree aux = saDireita.saDireita;
+        saDireita.saDireita = saDireita.saEsquerda;
 
-		AVLTree aux = saEsquerda.saEsquerda;
-		saEsquerda.saEsquerda = saEsquerda.saDireita;
+        saDireita.saEsquerda = saEsquerda;
+        saEsquerda = saDireita;
+        saDireita = aux;
 
-		saEsquerda.saDireita = saDireita;
-		saDireita = saEsquerda;
-		saEsquerda = aux;
+    }
 
-	}
-	private void rotacaoDuplaEsquerda() {
-		saDireita.rotacaoDireita();
-		rotacaoEsquerda();
-	}
-	private void rotacaoDuplaDireita() {
-		saEsquerda.rotacaoEsquerda();
-		rotacaoDireita();
-	}
-	
+    private void rotacaoDireita() {
+        Integer auxv = valor;
+        valor = saEsquerda.valor;
+        saEsquerda.valor = auxv;
+
+        AVLTree aux = saEsquerda.saEsquerda;
+        saEsquerda.saEsquerda = saEsquerda.saDireita;
+
+        saEsquerda.saDireita = saDireita;
+        saDireita = saEsquerda;
+        saEsquerda = aux;
+
+    }
+
+    private void rotacaoDuplaEsquerda() {
+        saDireita.rotacaoDireita();
+        rotacaoEsquerda();
+    }
+
+    private void rotacaoDuplaDireita() {
+        saEsquerda.rotacaoEsquerda();
+        rotacaoDireita();
+    }
+
 }
