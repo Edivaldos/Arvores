@@ -24,7 +24,7 @@ public class PrincipalAVL {
         arvore.inserir(8);
         arvore.inserir(9);
         arvore.inserir(10);
-        arvore.inserir(12);
+        arvore.inserir(17);
 
         System.out.println("\n EM ORDEM");
         arvore.imprimeEmOrdem();
