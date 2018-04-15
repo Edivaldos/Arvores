@@ -14,7 +14,7 @@ public class PrincipalAVL {
     public static void main(String[] args) {
 
         AVLTree arvore = new AVLTree();
-        arvore.inserir(1);
+        arvore.inserir(10);
         arvore.inserir(2);
         arvore.inserir(3);
         arvore.inserir(4);
@@ -24,53 +24,52 @@ public class PrincipalAVL {
         arvore.inserir(8);
         arvore.inserir(9);
         arvore.inserir(10);
+        arvore.inserir(10);
 
         System.out.println("\n EM ORDEM");
-        arvore.listarEmOrdem();
+        arvore.imprimeEmOrdem();
 
         System.out.println("\n PRE ORDEM");
-        arvore.listarPreOrdem();
+        arvore.imprimePreOrdem();
 
         System.out.println("\n POS ORDEM");
-        arvore.listarPosOrdem();
+        arvore.imprimePosOrdem();
 
-        arvore.deletar(25);
+        arvore.remover(25);
 
         System.out.println("\n EM ORDEM - APOS DELETAR O 25");
-        arvore.listarEmOrdem();
+        arvore.imprimeEmOrdem();
 
         System.out.println("\n PRE ORDEM - APOS DELETAR O 25");
-        arvore.listarPreOrdem();
+        arvore.imprimePreOrdem();
 
         System.out.println("\n POS ORDEM - APOS DELETAR O 25");
-        arvore.listarPosOrdem();
+        arvore.imprimePosOrdem();
 
-//        arvore.deletar(24);
+//        arvore.remover(24);
 //                
 //        System.out.println("\n EM ORDEM - APOS DELETAR O 24");
-//        arvore.listarEmOrdem();
+//        arvore.imprimeEmOrdem();
 //        
 //        System.out.println("\n PRE ORDEM - APOS DELETAR O 24");
-//        arvore.listarPreOrdem();
+//        arvore.imprimePreOrdem();
 //        
 //        System.out.println("\n POS ORDEM - APOS DELETAR O 24");
-//        arvore.listarPosOrdem();
+//        arvore.imprimePosOrdem();
 //        
 //    
-//        arvore.deletar(26);
+//        arvore.remover(26);
 //                
 //        System.out.println("\n EM ORDEM - APOS DELETAR O 26");
-//        arvore.listarEmOrdem();
+//        arvore.imprimeEmOrdem();
 //        
 //        System.out.println("\n PRE ORDEM - APOS DELETAR O 26");
-//        arvore.listarPreOrdem();
+//        arvore.imprimePreOrdem();
 //        
 //        System.out.println("\n POS ORDEM - APOS DELETAR O 26");
-//        arvore.listarPosOrdem();
+//        arvore.imprimePosOrdem();
         arvore.quantidadeNos(arvore);
 
         arvore.alturaArvore(arvore);
-
-        arvore.profundidade(arvore, 6);
     }
 }

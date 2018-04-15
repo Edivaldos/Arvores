@@ -11,19 +11,19 @@ package ExercicioAVL;
  */
 public abstract class InterfaceTree {
 
-    public abstract boolean isNull();
+    public abstract boolean arvoreVazia();
 
-    public abstract boolean saeNull();
+    public abstract boolean naoTemFilhoEsquerda();
 
-    public abstract boolean sadNull();
+    public abstract boolean naoTemFilhoDireita();
 
     public abstract void inserir(int v);
 
-    public abstract void deletar(int v);
+    public abstract void remover(int v);
 
-    public abstract void listarPreOrdem();
+    public abstract void imprimePreOrdem();
 
-    public abstract void listarEmOrdem();
+    public abstract void imprimeEmOrdem();
 
-    public abstract void listarPosOrdem();
+    public abstract void imprimePosOrdem();
 }
