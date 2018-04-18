@@ -8,8 +8,7 @@ package ArvoreAVL;
  */
 public class Teste {
     public static void main(String[] args) {
-        NoAVL novoNo = new NoAVL();
-        
+        NoAVL novoNo = new NoAVL();       
         
     }    
 }

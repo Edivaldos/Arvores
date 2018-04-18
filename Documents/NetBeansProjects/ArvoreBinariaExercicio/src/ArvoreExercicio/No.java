@@ -96,6 +96,11 @@ public class No {
                     this.noDireito.inserir(novo);
                 }
             }
+
+        }
+        int x = (fatorBal(this));
+        if (x > 1 || x < -1 || x == 0) {
+            balancear(this, x);
         }
     }
     //----------------------------------------------------------------------------
@@ -272,19 +277,126 @@ public class No {
                     return this;
                 }
             }
+            int x = (fatorBal(this));
+        if (x > 1 || x < -1 || x == 0) {
+            balancear(this, x);
+        }
             return this;//retorno o objeto.
         }
         return this;
     }
+
     //----------------------------------------------------------------------------
-    public void remocao(){
-        
-    }
-}
-/*OBSERVAÇÕES PARA REMOÇÃO NO 4º CASO.
+    /*OBSERVAÇÕES PARA REMOÇÃO NO 4º CASO.
  *** Definindo a Estratégia ***
 --> Quando eu tenho um elemento a ser removido e este tem descendentes em ambos os lados, tenho que definir uma estratégia. Mantendo a regra da árvore.
 --> Então posso tomar uma das seguintes decisões: 
 --> Posso pegar o MAIOR elemento dentre os Menores e trocar de posição com o elemento a ser removido.
 --> Ou eu posso pegar o MENOR elemento dentre os Maiores e trocar de posição com o elemento a ser removido.
 --> Então efetuo a remoção usando um dos três primeiros casos, dependendo da estratégia escolhida.*/
+//----------------------------------------------------------------------------
+//Novos Métodos para Árvore AVL
+    private int fatorBal(No no) {
+        int fbesquerda = 0;
+        int fbdireita = 0;
+        if (this.noEsquerdo == null) {//modificado
+            fbesquerda = no.altura();
+        }
+        if (this.noDireito == null) {//modificado
+            fbdireita = no.altura();
+        }
+        return fbesquerda - fbdireita;
+    }
+
+    private void balancear(No no, int x) {
+        if (x < -1) {
+            int filhoEsquerda = fatorBal(no.noEsquerdo);
+            if (filhoEsquerda > 0) {
+                rotDuplaDireita();
+                System.out.println("Rotação dupla direita");
+            } else {
+                rotDireita();
+                System.out.println("rotação simples direita");
+            }
+        }
+        if (x > 1) {
+            int filhoDireita = fatorBal(no.noDireito);
+            if (filhoDireita < 0) {
+                rotDuplaEsquerda();
+                System.out.println("rotação dupla esquerda");
+            } else {
+                rotEsquerda();
+                System.out.println("rotação simples esquerda");
+            }
+        }
+    }
+
+    private void rotEsquerda() {
+        Elemento aux = ele;
+        this.ele = noDireito.ele;
+        noDireito.ele = aux;
+
+        No aux2 = this.noDireito.noDireito;
+        this.noDireito.noDireito = noDireito.noEsquerdo;
+
+        this.noDireito.noEsquerdo = noEsquerdo;
+        noEsquerdo = noDireito;
+        noDireito = aux2;
+    }
+
+    private void rotDireita() {
+        Elemento aux = ele;
+        ele = noEsquerdo.ele;
+        noEsquerdo.ele = aux;
+
+        No aux2 = this.noEsquerdo.noEsquerdo;
+        this.noEsquerdo.noEsquerdo = noEsquerdo.noDireito;
+
+        this.noEsquerdo.noDireito = noDireito;
+        noDireito = noEsquerdo;
+        noEsquerdo = aux2;
+    }
+
+    private void rotDuplaEsquerda() {
+        noDireito.rotDireita();
+        rotEsquerda();
+    }
+
+    private void rotDuplaDireita() {
+        noEsquerdo.rotEsquerda();
+        rotDireita();
+    }
+
+    public int altura() {
+        if (this.noEsquerdo == this.noDireito) {
+            return 1;
+        } else if (this.noEsquerdo == null && this.noDireito != null) {
+            return this.noDireito.altura() + 1;
+        } else if (this.noEsquerdo != null && this.noDireito == null) {
+            return this.noEsquerdo.altura() + 1;
+        } else if (this.noEsquerdo.altura() > this.noDireito.altura()) {
+            return this.noEsquerdo.altura() + 1;
+        } else {
+            return this.noDireito.altura() + 1;
+        }
+    }
+}
+
+//VERIFICAR ESTE MÉTODO!!!
+//    private int altura(No arvore) {
+//
+//        if (arvore.getEle() == null) {
+//            return 0;
+//        } else if (arvore.noEsquerdo == null && arvore.noDireito == null) {
+//            return 1;
+//        } else if (this.noEsquerdo != null) {
+//            return 1 + altura(arvore.noEsquerdo);
+//        } else if (this.noDireito != null) {
+//            return 1 + altura(arvore.noDireito);
+//        } else {
+//            int altEsquerda = altura(arvore.noEsquerdo);
+//            int altDireita = altura(arvore.noDireito);
+//            return 1 + Math.max(altEsquerda, altDireita);
+//
+//        }
+//    }
