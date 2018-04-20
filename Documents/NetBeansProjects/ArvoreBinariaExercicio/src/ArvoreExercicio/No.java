@@ -96,10 +96,9 @@ public class No {
                     this.noDireito.inserir(novo);
                 }
             }
-
         }
         int x = (fatorBal(this));
-        if (x > 1 || x < -1 || x == 0) {
+        if (x > 1 || x < -1) {
             balancear(this, x);
         }
     }
@@ -278,9 +277,9 @@ public class No {
                 }
             }
             int x = (fatorBal(this));
-        if (x > 1 || x < -1 || x == 0) {
-            balancear(this, x);
-        }
+            if (x > 1 || x < -1) {
+                balancear(this, x);
+            }
             return this;//retorno o objeto.
         }
         return this;
