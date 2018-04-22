@@ -153,7 +153,9 @@ public class TreeViewer<T extends Comparable<T>> extends JFrame {
         noArvore.inserirNo(1);
         Thread.sleep(200);
         noArvore.inserirNo(2);
-
+                
+        System.out.println("Altura da árvore: " + noArvore.altura());
+        
         TreeViewer.mostrarArvore(noArvore);
 
         Thread.sleep(500);
@@ -201,7 +203,7 @@ public class TreeViewer<T extends Comparable<T>> extends JFrame {
         noArvore.removerNo(14);
         Thread.sleep(200);
         //Caso Excepcional - Removendo um nó que não existe na árvore, mas, se existisse estaria à esquerda de seu antecessor.
-        noArvore.removerNo(16);
+        noArvore.removerNo(18);
         Thread.sleep(200);
         //Caso Excepcional 2 - Removendo um nó que não existe na árvore, mas, se existisse estaria à direita de seu antecessor.
         noArvore.removerNo(29);
@@ -234,6 +236,7 @@ public class TreeViewer<T extends Comparable<T>> extends JFrame {
         System.out.println("\n-------------------------->> Executando... <<--------------------------");
 
         TreeViewer.mostrarArvore(noArvore);
+        System.out.println("Altura da árvore: " + noArvore.altura());
 
     }
 

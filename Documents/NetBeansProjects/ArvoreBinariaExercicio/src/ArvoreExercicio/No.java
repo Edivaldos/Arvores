@@ -97,10 +97,7 @@ public class No {
                 }
             }
         }
-        int x = (fatorBal(this));
-        if (x > 1 || x < -1) {
-            balancear(this, x);
-        }
+        verificaBalanceamento(this);
     }
     //----------------------------------------------------------------------------
 
@@ -276,10 +273,7 @@ public class No {
                     return this;
                 }
             }
-            int x = (fatorBal(this));
-            if (x > 1 || x < -1) {
-                balancear(this, x);
-            }
+            verificaBalanceamento(this);
             return this;//retorno o objeto.
         }
         return this;
@@ -295,6 +289,13 @@ public class No {
 --> Então efetuo a remoção usando um dos três primeiros casos, dependendo da estratégia escolhida.*/
 //----------------------------------------------------------------------------
 //Novos Métodos para Árvore AVL
+    private void verificaBalanceamento(No no) {
+        int x = (fatorBal(no));
+        if (x > 1 || x < -1) {
+            balancear(no, x);
+        }
+    }
+    
     private int fatorBal(No no) {
         int fbesquerda = 0;
         int fbdireita = 0;
@@ -366,22 +367,26 @@ public class No {
         rotDireita();
     }
 
+
+
     public int altura() {
-        if (this.noEsquerdo == this.noDireito) {
-            return 1;
-        } else if (this.noEsquerdo == null && this.noDireito != null) {
-            return this.noDireito.altura() + 1;
-        } else if (this.noEsquerdo != null && this.noDireito == null) {
-            return this.noEsquerdo.altura() + 1;
-        } else if (this.noEsquerdo.altura() > this.noDireito.altura()) {
-            return this.noEsquerdo.altura() + 1;
-        } else {
-            return this.noDireito.altura() + 1;
+        return altura(this);
+    }
+    
+    private int altura(No p){
+        if(p != null){
+            int altEsq, altDir;
+            altEsq = altura(p.noEsquerdo);
+            altDir = altura(p.noDireito);
+            
+            if(altEsq > altDir)
+                return altEsq + 1;
+            else return altDir + 1;
         }
+        return 0;
     }
 }
-
-//VERIFICAR ESTE MÉTODO!!!
+//VERIFICAR ESTES MÉTODOS!!!
 //    private int altura(No arvore) {
 //
 //        if (arvore.getEle() == null) {
@@ -397,5 +402,19 @@ public class No {
 //            int altDireita = altura(arvore.noDireito);
 //            return 1 + Math.max(altEsquerda, altDireita);
 //
+//        }
+//    }
+
+//    public int altura() {
+//        if (this.noEsquerdo == this.noDireito) {
+//            return 1;
+//        } else if (this.noEsquerdo == null && this.noDireito != null) {
+//            return this.noDireito.altura() + 1;
+//        } else if (this.noEsquerdo != null && this.noDireito == null) {
+//            return this.noEsquerdo.altura() + 1;
+//        } else if (this.noEsquerdo.altura() > this.noDireito.altura()) {
+//            return this.noEsquerdo.altura() + 1;
+//        } else {
+//            return this.noDireito.altura() + 1;
 //        }
 //    }

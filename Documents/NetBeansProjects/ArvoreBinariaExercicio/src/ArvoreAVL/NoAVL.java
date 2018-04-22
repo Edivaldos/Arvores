@@ -1,6 +1,8 @@
 /* CLASSE PRINCIPAL DE CONSTRUÇÃO DA ÁRVORE BINÁRIA AVL.
  */
-import ArvoreAVL.No;
+
+package ArvoreAVL;
+
 import java.util.ArrayList;
 
 public class NoAVL {
